@@ -38,7 +38,6 @@ public class RegistrationActivity extends AppCompatActivity {
         createAccountBtn = findViewById(R.id.create_account_button);
         progressBar = findViewById(R.id.progress_bar);
         loginBtnTextView = findViewById(R.id.login_txt_button);
-
         createAccountBtn.setOnClickListener(v-> createAccount());
         loginBtnTextView.setOnClickListener(v-> finish());
     }
@@ -65,13 +64,13 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 changeInProgress(false);
                 if(task.isSuccessful()){
-                    Toast.makeText(RegistrationActivity.this, "Account has been successfully created!, Please check the email to verify", Toast.LENGTH_SHORT).show();
+                    Utility.showToast(RegistrationActivity.this, "Account has been successfully created!, Please check the email to verify");
                     firebaseAuth.getCurrentUser().sendEmailVerification();
                     firebaseAuth.signOut();
                     finish();
                 }
                 else {
-                    Toast.makeText(RegistrationActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    Utility.showToast(RegistrationActivity.this, task.getException().getLocalizedMessage());
                 }
 
             }
