@@ -103,7 +103,6 @@
             android:text="Cost"
             android:textSize="18sp"
             android:background="#FEF7FF"
-
             android:layout_marginLeft="10dp"
             android:padding="5dp"/>
     </RelativeLayout>
