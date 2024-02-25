@@ -19,6 +19,7 @@
             <Spinner
                 android:id="@+id/spinner_type"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_height="50dp"/>
         </LinearLayout>
         <TextView
@@ -44,6 +45,7 @@
             <Spinner
                 android:id="@+id/spinner_size"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_height="50dp" />
         </LinearLayout>
         <TextView
@@ -66,6 +68,7 @@
             <Spinner
                 android:id="@+id/spinner_alcohol"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_height="50dp"/>
         </LinearLayout>
         <TextView
@@ -91,8 +94,9 @@
             <EditText
                 android:id="@+id/text_cost"
                 android:layout_width="match_parent"
-                android:background="@drawable/rounded_corner"
+                android:background="@drawable/no_stroke"
                 android:hint="€ 0.00 "
+                android:layout_marginRight="10dp"
                 android:textAlignment="viewEnd"
                 android:inputType="text"
                 android:layout_height="50dp" />
@@ -117,7 +121,10 @@
             <EditText
                 android:id="@+id/text_place"
                 android:layout_width="match_parent"
-                android:background="@drawable/rounded_corner"
+                android:background="@drawable/no_stroke"
+                android:inputType="text"
+                android:hint="Pub, Bar, Store etc.. "
+                android:layout_marginLeft="10dp"
                 android:layout_height="50dp"/>
         </LinearLayout>
         <TextView

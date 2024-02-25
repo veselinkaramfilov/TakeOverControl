@@ -1,3 +1,91 @@
 <resources>
     <string name="app_name">TakeOverControl</string>
+    
+    <string-array name="array_type">
+        <item>Select Type</item>
+        <item>Beer</item>
+        <item>Cider</item>
+        <item>Whiskey</item>
+        <item>Wine</item>
+        <item>Champagne</item>
+        <item>Vodka</item>
+        <item>Tequila</item>
+        <item>Cognac</item>
+        <item>Liqueur</item>
+        <item>Cocktail</item>
+        <item>Hot Drink</item>
+        <item>Other</item>
+        <item>Only Buying</item>
+    </string-array>
+
+    <string-array name="array_default_size">
+        <item>Select Size</item>
+    </string-array>
+
+    <string-array name="array_default_alcohol">
+        <item>Select Alcohol</item>
+    </string-array>
+
+    <string-array name="array_beer_size">
+        <item>Select Size</item>
+        <item>Small Can/Bottle (275ml)</item>
+        <item>Small Can/Bottle (300ml)</item>
+        <item>Small Can/Bottle (330ml)</item>
+        <item>Half Pint (284ml)</item>
+        <item>Medium Can/Bottle (400ml)</item>
+        <item>Medium Can/Bottle (440ml)</item>
+        <item>Can/Bottle (500ml)</item>
+        <item>Pint (568ml)</item>
+        <item>Mug (1000ml)</item>
+    </string-array>
+
+    <string-array name="array_beer_alcohol">
+        <item>Select Alcohol</item>
+        <item>2.0%</item>
+        <item>2.5%</item>
+        <item>3.0%</item>
+        <item>3.5%</item>
+        <item>4.0%</item>
+        <item>4.5%</item>
+        <item>5.0%</item>
+        <item>5.5%</item>
+        <item>6.0%</item>
+        <item>7.0%</item>
+        <item>8.0%</item>
+        <item>9.0%</item>
+        <item>10.0%</item>
+        <item>12.0%</item>
+    </string-array>
+
+    <string-array name="array_cider_size">
+        <item>Select Size</item>
+        <item>Small Can/Bottle (330ml)</item>
+        <item>Half Pint (284ml)</item>
+        <item>Medium Can/Bottle (440ml)</item>
+        <item>Can/Bottle (500ml)</item>
+        <item>Pint (568ml)</item>
+    </string-array>
+
+    <string-array name="array_cider_alcohol">
+        <item>Select Alcohol</item>
+        <item>2.0%</item>
+        <item>2.5%</item>
+        <item>3.0%</item>
+        <item>3.5%</item>
+        <item>4.0%</item>
+        <item>4.5%</item>
+        <item>5.0%</item>
+        <item>5.5%</item>
+        <item>6.0%</item>
+        <item>7.0%</item>
+        <item>8.0%</item>
+        <item>9.0%</item>
+        <item>10.0%</item>
+        <item>12.0%</item>
+    </string-array>
+
+
+
+
+    
 </resources>
