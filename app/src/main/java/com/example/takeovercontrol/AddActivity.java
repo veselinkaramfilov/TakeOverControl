@@ -39,7 +39,7 @@ public class AddActivity extends AppCompatActivity {
         place = findViewById(R.id.text_place);
         datePicker = findViewById(R.id.date_picker);
         saveButton = findViewById(R.id.save_button);
-        saveButton.setOnClickListener((v)-> saveDetailsButton());
+        saveButton.setOnClickListener((v)-> saveDetails());
 
         //Current Date
         Calendar calendar = Calendar.getInstance();
@@ -192,7 +192,7 @@ public class AddActivity extends AppCompatActivity {
 
 
     }
-    void saveDetailsButton() {
+    void saveDetails() {
         // Get the selected values
         String costText = cost.getText().toString();
         String placeText = place.getText().toString();
