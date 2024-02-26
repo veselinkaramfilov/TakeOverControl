@@ -3,24 +3,59 @@ package com.example.takeovercontrol;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class AddActivity extends AppCompatActivity {
 
-    private String selectedType, selectedSize, selectedAlcohol; //Spinners
+    private String selectedType, selectedSize, selectedAlcohol;
     private Spinner spinnerType, spinnerSize, spinnerAlcohol;
     private ArrayAdapter<CharSequence> adapterType, adapterSize, adapterAlcohol;
+    private DatePicker datePicker;
+    Button saveButton;
+    EditText cost, place;
+    Double unit;
+    String selectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+
+        cost = findViewById(R.id.text_cost);
+        place = findViewById(R.id.text_place);
+        datePicker = findViewById(R.id.date_picker);
+        saveButton = findViewById(R.id.save_button);
+        saveButton.setOnClickListener((v)-> saveDetailsButton());
+
+        //Current Date
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        if (TextUtils.isEmpty(selectedDate)) {
+            selectedDate = year + "-" + (month + 1) + "-" + day;
+        }
+        datePicker.init(year, month, day, new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                selectedDate = year + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
+                // You can use the selectedDate variable here or pass it to a method to handle it
+            }
+        });
 
         //Type Spinner
         spinnerType = findViewById(R.id.spinner_type);
@@ -101,51 +136,39 @@ public class AddActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedSize = spinnerSize.getSelectedItem().toString();
 
-                if(selectedSize.equals("Select Size")) {
+                if (selectedSize.equals("Select Size")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_default_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Beer")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Beer")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_beer_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Cider")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Cider")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_cider_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Whiskey")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Whiskey")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_whiskey_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Wine")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Wine")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_wine_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Champagne")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Champagne")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_champagne_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Vodka")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Vodka")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_vodka_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Tequila")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Tequila")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_tequila_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Cognac")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Cognac")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_cognac_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Liqueur")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Liqueur")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_liqueur_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Cocktail")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Cocktail")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_cocktail_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Hot Drink")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Hot Drink")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_hot_drink_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Other")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Other")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_other_alcohol, R.layout.spinner_layout);
-                }
-                else if(!selectedSize.equals("Select Size") && selectedType.equals("Just Buy")){
+                } else if (!selectedSize.equals("Select Size") && selectedType.equals("Just Buy")) {
                     adapterAlcohol = ArrayAdapter.createFromResource(parent.getContext(), R.array.array_just_buy_alcohol, R.layout.spinner_layout);
                 }
 
                 adapterAlcohol.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerAlcohol.setAdapter(adapterAlcohol);
+
             }
 
             @Override
@@ -153,5 +176,71 @@ public class AddActivity extends AppCompatActivity {
 
             }
         });
+
+        spinnerAlcohol.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedAlcohol = spinnerAlcohol.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle the case where no alcohol is selected
+            }
+        });
+
+
     }
-}
+    void saveDetailsButton () {
+
+        // Get the selected values
+        String costText = cost.getText().toString();
+        String placeText = place.getText().toString();
+
+        // Check if cost and place are not empty
+        if (TextUtils.isEmpty(costText)) {
+            // Handle empty cost field
+            Toast.makeText(AddActivity.this, "Please enter cost", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(placeText)) {
+            // Handle empty place field
+            Toast.makeText(AddActivity.this, "Please enter place", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Parse cost to Double
+        double costValue;
+        try {
+            costValue = Double.parseDouble(costText);
+        } catch (NumberFormatException e) {
+            // Handle invalid cost format
+            Toast.makeText(AddActivity.this, "Invalid cost format", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Now you have all the data, you can save it to a database, file, or perform any other action
+        // For demonstration, I'm just logging the values
+        Log.d("SelectedData", "Type: " + selectedType);
+        Log.d("SelectedData", "Size: " + selectedSize);
+        Log.d("SelectedData", "Alcohol: " + selectedAlcohol);
+        Log.d("SelectedData", "Cost: " + costValue);
+        Log.d("SelectedData", "Place: " + placeText);
+        Log.d("SelectedData", "Date: " + selectedDate);
+
+        // Here you can save the data to your database or perform any other necessary action
+        // For example, you can create a method to save the data to a database
+        saveData(selectedType, selectedSize, selectedAlcohol, costValue, placeText, selectedDate);
+
+        // Optionally, you can navigate back to the previous activity or perform any other action
+        finish();
+    }
+
+    // Method to save data to database
+    private void saveData(String selectedType, String selectedSize, String selectedAlcohol, double costValue, String placeText, String selectedDate) {
+        // Implement your logic to save data to database here
+    }
+
+
+    }
