@@ -26,8 +26,9 @@ public class AddActivity extends AppCompatActivity {
     private DatePicker datePicker;
     Button saveButton;
     EditText cost, place;
-    Double unit;
+    float alcoholUnits;
     String selectedDate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,19 +192,12 @@ public class AddActivity extends AppCompatActivity {
 
 
     }
-    void saveDetailsButton () {
-
+    void saveDetailsButton() {
         // Get the selected values
         String costText = cost.getText().toString();
         String placeText = place.getText().toString();
 
-        // Check if cost and place are not empty
-        if (TextUtils.isEmpty(costText)) {
-            // Handle empty cost field
-            Toast.makeText(AddActivity.this, "Please enter cost", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
+        // Check if place is not empty
         if (TextUtils.isEmpty(placeText)) {
             // Handle empty place field
             Toast.makeText(AddActivity.this, "Please enter place", Toast.LENGTH_SHORT).show();
@@ -211,36 +205,63 @@ public class AddActivity extends AppCompatActivity {
         }
 
         // Parse cost to Double
-        double costValue;
-        try {
-            costValue = Double.parseDouble(costText);
-        } catch (NumberFormatException e) {
-            // Handle invalid cost format
-            Toast.makeText(AddActivity.this, "Invalid cost format", Toast.LENGTH_SHORT).show();
-            return;
+        double costValue = 0.00; // Default value
+        if (!TextUtils.isEmpty(costText)) {
+            try {
+                costValue = Double.parseDouble(costText);
+            } catch (NumberFormatException e) {
+                // Handle invalid cost format
+                Toast.makeText(AddActivity.this, "Invalid cost format", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
+
+        // Format cost value to display with two decimal places
+        String formattedCost = String.format("%.2f", costValue);
+
+        // Calculate alcohol units
+        alcoholUnits = calculateAlcoholUnits(selectedSize, selectedAlcohol);
+        String formattedAlcoholUnits = String.format("%.1f", alcoholUnits); // Format alcohol units
 
         // Now you have all the data, you can save it to a database, file, or perform any other action
         // For demonstration, I'm just logging the values
         Log.d("SelectedData", "Type: " + selectedType);
         Log.d("SelectedData", "Size: " + selectedSize);
         Log.d("SelectedData", "Alcohol: " + selectedAlcohol);
-        Log.d("SelectedData", "Cost: " + costValue);
+        Log.d("SelectedData", "Cost: " + formattedCost);
         Log.d("SelectedData", "Place: " + placeText);
         Log.d("SelectedData", "Date: " + selectedDate);
+        Log.d("SelectedData", "Alcohol Units: " + formattedAlcoholUnits);
 
         // Here you can save the data to your database or perform any other necessary action
         // For example, you can create a method to save the data to a database
-        saveData(selectedType, selectedSize, selectedAlcohol, costValue, placeText, selectedDate);
+        saveData(selectedType, selectedSize, selectedAlcohol, costValue, placeText, selectedDate, alcoholUnits);
 
         // Optionally, you can navigate back to the previous activity or perform any other action
         finish();
     }
 
-    // Method to save data to database
-    private void saveData(String selectedType, String selectedSize, String selectedAlcohol, double costValue, String placeText, String selectedDate) {
-        // Implement your logic to save data to database here
+    // Method to calculate alcohol units
+    private float calculateAlcoholUnits(String selectedSize, String selectedAlcohol) {
+        try {
+
+            // Extract volume from selectedSize
+            float volume = Float.parseFloat(selectedSize.replaceAll("[^\\d.]+", ""));
+            // Extract ABV from selectedAlcohol
+            float abv = Float.parseFloat(selectedAlcohol.replaceAll("[^\\d.]+", ""));
+
+            // Calculate units of alcohol using the formula
+            return (volume * abv) / (1000);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return 0.0f; // Return default value if parsing fails
+        }
     }
 
+    // Method to save data to database
+    private void saveData(String selectedType, String selectedSize, String selectedAlcohol, double costValue, String placeText, String selectedDate, float alcoholUnits) {
+        // Implement your logic to save data to database here
 
+
+    }
     }

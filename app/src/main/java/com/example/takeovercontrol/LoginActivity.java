@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -49,11 +48,11 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        loginAccountFirabase(email, password);
+        loginAccountFirebase(email, password);
 
     }
 
-    void loginAccountFirabase(String email, String password) {
+    void loginAccountFirebase(String email, String password) {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         changeInProgress(true);
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
