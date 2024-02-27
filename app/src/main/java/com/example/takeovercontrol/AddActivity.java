@@ -1,5 +1,6 @@
 package com.example.takeovercontrol;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,8 +16,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
+
 import java.util.Calendar;
-import java.util.Date;
+
 
 public class AddActivity extends AppCompatActivity {
 
@@ -235,10 +241,25 @@ public class AddActivity extends AppCompatActivity {
 
         // Here you can save the data to your database or perform any other necessary action
         // For example, you can create a method to save the data to a database
-        saveData(selectedType, selectedSize, selectedAlcohol, costValue, placeText, selectedDate, alcoholUnits);
+        //saveData(selectedType, selectedSize, selectedAlcohol, costValue, placeText, selectedDate, alcoholUnits);
 
         // Optionally, you can navigate back to the previous activity or perform any other action
         finish();
+
+
+
+        Details details = new Details();
+        details.setType(selectedType);
+        details.setSize(selectedSize);
+        details.setAlcohol(selectedAlcohol);
+        details.setCost(formattedCost);
+        details.setPlace(placeText);
+        details.setDate(selectedDate);
+        details.setUnit(formattedAlcoholUnits);
+        details.setTimestamp(Timestamp.now());
+
+        saveDetailsToFirebase(details);
+
     }
 
     // Method to calculate alcohol units
@@ -259,9 +280,30 @@ public class AddActivity extends AppCompatActivity {
     }
 
     // Method to save data to database
-    private void saveData(String selectedType, String selectedSize, String selectedAlcohol, double costValue, String placeText, String selectedDate, float alcoholUnits) {
+    //private void saveData(String selectedType, String selectedSize, String selectedAlcohol, double costValue, String placeText, String selectedDate, float alcoholUnits) {
         // Implement your logic to save data to database here
 
 
+    //}
+
+    void saveDetailsToFirebase(Details details){
+        DocumentReference documentReference;
+        documentReference = Utility.getCollectionReferenceForDetails().document();
+
+        documentReference.set(details).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Utility.showToast(AddActivity.this, "Details saved successfully");
+                    finish();
+                }
+                else {
+                    Utility.showToast(AddActivity.this, "Details couldn't be  saved");
+
+                }
+            }
+        });
+
     }
+
     }
