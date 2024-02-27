@@ -3,7 +3,7 @@ package com.example.takeovercontrol;
 import com.google.firebase.Timestamp;
 
 public class Details {
-    String type, size, alcohol, unit, cost, place, date;
+    String type, size, alcohol, unit, cost, place;
     Timestamp timestamp;
 
     public Details() {
@@ -57,6 +57,7 @@ public class Details {
         this.place = place;
     }
 
+    /*
     public String getDate() {
         return date;
     }
@@ -64,7 +65,7 @@ public class Details {
     public void setDate(String date) {
         this.date = date;
     }
-
+    */
 
     public Timestamp getTimestamp() {
         return timestamp;

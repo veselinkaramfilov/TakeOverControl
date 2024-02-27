@@ -136,6 +136,8 @@
             android:layout_marginLeft="10dp"
             android:padding="5dp"/>
     </RelativeLayout>
+
+    <!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -155,7 +157,9 @@
             android:layout_height="140dp"
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
+
     </RelativeLayout>
+    -->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/save_button"

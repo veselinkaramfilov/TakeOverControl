@@ -43,10 +43,11 @@ public class AddActivity extends AppCompatActivity {
 
         cost = findViewById(R.id.text_cost);
         place = findViewById(R.id.text_place);
-        datePicker = findViewById(R.id.date_picker);
+        //datePicker = findViewById(R.id.date_picker);
         saveButton = findViewById(R.id.save_button);
         saveButton.setOnClickListener((v)-> saveDetails());
 
+        /*
         //Current Date
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -63,7 +64,7 @@ public class AddActivity extends AppCompatActivity {
                 // You can use the selectedDate variable here or pass it to a method to handle it
             }
         });
-
+        */
         //Type Spinner
         spinnerType = findViewById(R.id.spinner_type);
         adapterType = ArrayAdapter.createFromResource(this, R.array.array_type, R.layout.spinner_layout);
@@ -236,7 +237,7 @@ public class AddActivity extends AppCompatActivity {
         Log.d("SelectedData", "Alcohol: " + selectedAlcohol);
         Log.d("SelectedData", "Cost: " + formattedCost);
         Log.d("SelectedData", "Place: " + placeText);
-        Log.d("SelectedData", "Date: " + selectedDate);
+        //Log.d("SelectedData", "Date: " + selectedDate);
         Log.d("SelectedData", "Alcohol Units: " + formattedAlcoholUnits);
 
         // Here you can save the data to your database or perform any other necessary action
@@ -254,7 +255,7 @@ public class AddActivity extends AppCompatActivity {
         details.setAlcohol(selectedAlcohol);
         details.setCost(formattedCost);
         details.setPlace(placeText);
-        details.setDate(selectedDate);
+        //details.setDate(selectedDate);
         details.setUnit(formattedAlcoholUnits);
         details.setTimestamp(Timestamp.now());
 
