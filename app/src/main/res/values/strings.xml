@@ -1,0 +1,446 @@
+<resources>
+    <string name="app_name">TakeOverControl</string>
+
+    <string-array name="array_type">
+        <item>Select Type</item>
+        <item>Beer</item>
+        <item>Cider</item>
+        <item>Whiskey</item>
+        <item>Wine</item>
+        <item>Champagne</item>
+        <item>Vodka</item>
+        <item>Tequila</item>
+        <item>Cognac</item>
+        <item>Liqueur</item>
+        <item>Cocktail</item>
+        <item>Hot Drink</item>
+        <item>Other</item>
+        <item>Just Buy</item>
+    </string-array>
+
+    <string-array name="array_default_size">
+        <item>Select Size</item>
+    </string-array>
+
+    <string-array name="array_default_alcohol">
+        <item>Select Alcohol</item>
+    </string-array>
+
+    <string-array name="array_beer_size">
+        <item>Select Size</item>
+        <item>Small Can/Bottle (275ml)</item>
+        <item>Small Can/Bottle (300ml)</item>
+        <item>Small Can/Bottle (330ml)</item>
+        <item>Half Pint (284ml)</item>
+        <item>Medium Can/Bottle (400ml)</item>
+        <item>Medium Can/Bottle (440ml)</item>
+        <item>Can/Bottle (500ml)</item>
+        <item>Pint (568ml)</item>
+        <item>Mug (1000ml)</item>
+    </string-array>
+
+    <string-array name="array_beer_alcohol">
+        <item>Select Alcohol</item>
+        <item>2.0</item>
+        <item>2.5</item>
+        <item>3.0</item>
+        <item>3.5</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>7.0</item>
+        <item>8.0</item>
+        <item>9.0</item>
+        <item>10.0</item>
+        <item>12.0</item>
+    </string-array>
+
+    <string-array name="array_cider_size">
+        <item>Select Size</item>
+        <item>Small Can/Bottle (330ml)</item>
+        <item>Half Pint (284ml)</item>
+        <item>Medium Can/Bottle (440ml)</item>
+        <item>Can/Bottle (500ml)</item>
+        <item>Pint (568ml)</item>
+    </string-array>
+
+    <string-array name="array_cider_alcohol">
+        <item>Select Alcohol</item>
+        <item>2.0</item>
+        <item>2.5</item>
+        <item>3.0</item>
+        <item>3.5</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>7.0</item>
+        <item>8.0</item>
+        <item>9.0</item>
+        <item>10.0</item>
+        <item>12.0</item>
+    </string-array>
+
+    <string-array name="array_whiskey_size">
+        <item>Select Size</item>
+        <item>Small Shot (20ml)</item>
+        <item>Medium Shot (25ml)</item>
+        <item>Large Shot (35ml)</item>
+        <item>Small Double (40ml)</item>
+        <item>Medium Double (50ml)</item>
+        <item>Large Double (70ml)</item>
+    </string-array>
+
+    <string-array name="array_whiskey_alcohol">
+        <item>Select Alcohol</item>
+        <item>20.0</item>
+        <item>25.0</item>
+        <item>30.0</item>
+        <item>32.0</item>
+        <item>35.0</item>
+        <item>35.5</item>
+        <item>37.0</item>
+        <item>40.0</item>
+        <item>42.0</item>
+        <item>42.5</item>
+        <item>45.0</item>
+        <item>47.0</item>
+        <item>50.0</item>
+    </string-array>
+
+    <string-array name="array_wine_size">
+        <item>Select Size</item>
+        <item>Small Glass (125ml)</item>
+        <item>Medium Glass (150ml)</item>
+        <item>Large Glass (175ml)</item>
+        <item>Half Bottle (375ml)</item>
+        <item>Bottle (750ml)</item>
+    </string-array>
+
+    <string-array name="array_wine_alcohol">
+        <item>Select Alcohol</item>
+        <item>8.0</item>
+        <item>9.0</item>
+        <item>10.0</item>
+        <item>10.5</item>
+        <item>11.0</item>
+        <item>11.5</item>
+        <item>12.0</item>
+        <item>12.5</item>
+        <item>13.0</item>
+        <item>13.5</item>
+        <item>14.0</item>
+        <item>15.0</item>
+        <item>16.0</item>
+        <item>18.0</item>
+        <item>20.0</item>
+    </string-array>
+
+    <string-array name="array_champagne_size">
+        <item>Select Size</item>
+        <item>Small Glass (125ml)</item>
+        <item>Large Glass (175ml)</item>
+        <item>Small Bottle (187ml)</item>
+        <item>Half Bottle (375ml)</item>
+        <item>Bottle (750ml)</item>
+    </string-array>
+
+    <string-array name="array_champagne_alcohol">
+        <item>Select Alcohol</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>6.5</item>
+        <item>7.0</item>
+        <item>7.5</item>
+        <item>8.0</item>
+        <item>8.5</item>
+        <item>9.0</item>
+        <item>10.0</item>
+        <item>11.0</item>
+        <item>12.0</item>
+        <item>14.0</item>
+    </string-array>
+
+    <string-array name="array_vodka_size">
+        <item>Select Size</item>
+        <item>Small Shot (20ml)</item>
+        <item>Medium Shot (25ml)</item>
+        <item>Large Shot (35ml)</item>
+        <item>Small Double (40ml)</item>
+        <item>Medium Double (50ml)</item>
+        <item>Large Double (70ml)</item>
+    </string-array>
+
+    <string-array name="array_vodka_alcohol">
+        <item>Select Alcohol</item>
+        <item>20.0</item>
+        <item>25.0</item>
+        <item>30.0</item>
+        <item>32.0</item>
+        <item>35.0</item>
+        <item>35.5</item>
+        <item>37.0</item>
+        <item>40.0</item>
+        <item>42.0</item>
+        <item>42.5</item>
+        <item>45.0</item>
+        <item>47.0</item>
+        <item>50.0</item>
+    </string-array>
+
+    <string-array name="array_tequila_size">
+        <item>Select Size</item>
+        <item>Small Shot (20ml)</item>
+        <item>Medium Shot (25ml)</item>
+        <item>Large Shot (35ml)</item>
+        <item>Small Double (40ml)</item>
+        <item>Medium Double (50ml)</item>
+        <item>Large Double (70ml)</item>
+    </string-array>
+
+    <string-array name="array_tequila_alcohol">
+        <item>Select Alcohol</item>
+        <item>20.0</item>
+        <item>25.0</item>
+        <item>30.0</item>
+        <item>32.0</item>
+        <item>35.0</item>
+        <item>35.5</item>
+        <item>37.0</item>
+        <item>40.0</item>
+        <item>42.0</item>
+        <item>42.5</item>
+        <item>45.0</item>
+        <item>47.0</item>
+        <item>50.0</item>
+    </string-array>
+
+    <string-array name="array_cognac_size">
+        <item>Select Size</item>
+        <item>Small Shot (20ml)</item>
+        <item>Medium Shot (25ml)</item>
+        <item>Large Shot (35ml)</item>
+        <item>Small Double (40ml)</item>
+        <item>Medium Double (50ml)</item>
+        <item>Large Double (70ml)</item>
+    </string-array>
+
+    <string-array name="array_cognac_alcohol">
+        <item>Select Alcohol</item>
+        <item>20.0</item>
+        <item>25.0</item>
+        <item>30.0</item>
+        <item>32.0</item>
+        <item>35.0</item>
+        <item>35.5</item>
+        <item>37.0</item>
+        <item>40.0</item>
+        <item>42.0</item>
+        <item>42.5</item>
+        <item>45.0</item>
+        <item>47.0</item>
+        <item>50.0</item>
+    </string-array>
+
+    <string-array name="array_liqueur_size">
+        <item>Select Size</item>
+        <item>Small Shot (20ml)</item>
+        <item>Medium Shot (25ml)</item>
+        <item>Large Shot (35ml)</item>
+        <item>Small Double (40ml)</item>
+        <item>Medium Double (50ml)</item>
+        <item>Large Double (70ml)</item>
+    </string-array>
+
+    <string-array name="array_liqueur_alcohol">
+        <item>Select Alcohol</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>6.5</item>
+        <item>7.0</item>
+        <item>7.5</item>
+        <item>8.0</item>
+        <item>8.5</item>
+        <item>9.0</item>
+        <item>10.0</item>
+        <item>11.0</item>
+        <item>12.0</item>
+        <item>14.0</item>
+        <item>16.0</item>
+        <item>18.0</item>
+        <item>20.0</item>
+    </string-array>
+
+    <string-array name="array_cocktail_size">
+        <item>Select Size</item>
+        <item>Small Shot (20ml)</item>
+        <item>Medium Shot (25ml)</item>
+        <item>Large Shot (35ml)</item>
+        <item>Small Double (40ml)</item>
+        <item>Medium Double (50ml)</item>
+        <item>Large Double (70ml)</item>
+        <item>Small Glass (100ml)</item>
+        <item>Large Glass (200ml)</item>
+    </string-array>
+
+    <string-array name="array_cocktail_alcohol">
+        <item>Select Alcohol</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>6.5</item>
+        <item>7.0</item>
+        <item>7.5</item>
+        <item>8.0</item>
+        <item>8.5</item>
+        <item>9.0</item>
+        <item>10.0</item>
+        <item>11.0</item>
+        <item>12.0</item>
+        <item>14.0</item>
+        <item>16.0</item>
+        <item>18.0</item>
+        <item>20.0</item>
+        <item>25.0</item>
+        <item>30.0</item>
+        <item>32.0</item>
+        <item>35.0</item>
+        <item>35.5</item>
+        <item>37.0</item>
+        <item>40.0</item>
+        <item>42.0</item>
+        <item>42.5</item>
+        <item>45.0</item>
+        <item>47.0</item>
+        <item>50.0</item>
+    </string-array>
+
+    <string-array name="array_hot_drink_size">
+        <item>Select Size</item>
+        <item>Small Shot (20ml)</item>
+        <item>Medium Shot (25ml)</item>
+        <item>Large Shot (35ml)</item>
+        <item>Small Double (40ml)</item>
+        <item>Medium Double (50ml)</item>
+        <item>Large Double (70ml)</item>
+        <item>Cup (100ml)</item>
+        <item>Large Cup (200ml)</item>
+    </string-array>
+
+    <string-array name="array_hot_drink_alcohol">
+        <item>Select Alcohol</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>6.5</item>
+        <item>7.0</item>
+        <item>7.5</item>
+        <item>8.0</item>
+        <item>8.5</item>
+        <item>9.0</item>
+        <item>10.0</item>
+        <item>11.0</item>
+        <item>12.0</item>
+        <item>14.0</item>
+        <item>16.0</item>
+        <item>18.0</item>
+        <item>20.0</item>
+        <item>25.0</item>
+        <item>30.0</item>
+        <item>32.0</item>
+        <item>35.0</item>
+        <item>35.5</item>
+        <item>37.0</item>
+        <item>40.0</item>
+        <item>42.0</item>
+        <item>42.5</item>
+        <item>45.0</item>
+        <item>47.0</item>
+        <item>50.0</item>
+    </string-array>
+
+    <string-array name="array_other_size">
+        <item>Select Size</item>
+        <item>Small Can/Bottle (275ml)</item>
+        <item>Small Can/Bottle (300ml)</item>
+        <item>Small Can/Bottle (330ml)</item>
+        <item>Small Glass (100ml)</item>
+        <item>Small Glass (125ml)</item>
+        <item>Small Bottle (187ml)</item>
+        <item>Small Shot (20ml)</item>
+        <item>Small Double (40ml)</item>
+        <item>Medium Can/Bottle (400ml)</item>
+        <item>Medium Can/Bottle (440ml)</item>
+        <item>Medium Shot (25ml)</item>
+        <item>Medium Glass (150ml)</item>
+        <item>Medium Double (50ml)</item>
+        <item>Large Shot (35ml)</item>
+        <item>Large Double (70ml)</item>
+        <item>Large Cup (200ml)</item>
+        <item>Large Glass (200ml)</item>
+        <item>Large Glass (175ml)</item>
+        <item>Half Pint (284ml)</item>
+        <item>Pint (568ml)</item>
+        <item>Can/Bottle (500ml)</item>
+        <item>Mug (1000ml)</item>
+        <item>Cup (100ml)</item>
+        <item>Half Bottle (375ml)</item>
+        <item>Bottle (750ml)</item>
+    </string-array>
+
+    <string-array name="array_other_alcohol">
+        <item>Select Alcohol</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+        <item>5.5</item>
+        <item>6.0</item>
+        <item>6.5</item>
+        <item>7.0</item>
+        <item>7.5</item>
+        <item>8.0</item>
+        <item>8.5</item>
+        <item>9.0</item>
+        <item>10.0</item>
+        <item>11.0</item>
+        <item>12.0</item>
+        <item>14.0</item>
+        <item>16.0</item>
+        <item>18.0</item>
+        <item>20.0</item>
+        <item>25.0</item>
+        <item>30.0</item>
+        <item>32.0</item>
+        <item>35.0</item>
+        <item>35.5</item>
+        <item>37.0</item>
+        <item>40.0</item>
+        <item>42.0</item>
+        <item>42.5</item>
+        <item>45.0</item>
+        <item>47.0</item>
+        <item>50.0</item>
+    </string-array>
+
+    <string-array name="array_just_buy_size">
+        <item>Just Buy</item>
+    </string-array>
+
+    <string-array name="array_just_buy_alcohol">
+        <item>Just Buy</item>
+    </string-array>
+
+</resources>

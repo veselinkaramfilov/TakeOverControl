@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1077787495171",
+    "project_id": "take-over-control",
+    "storage_bucket": "take-over-control.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077787495171:android:1588b376a09a8b86b37736",
+        "android_client_info": {
+          "package_name": "com.example.takeovercontrol"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFFAkj4xZotbr6nmd0fKUlSc0vTvc8hNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
