@@ -11,17 +11,17 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 public class RegistrationActivity extends AppCompatActivity {
-    EditText emailEditText, passwordEditText, confirmPasswordEditTex;
+    EditText emailEditText, passwordEditText, confirmPasswordEditText;
     Button createAccountBtn;
     ProgressBar progressBar;
     TextView loginBtnTextView;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +30,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
         emailEditText = findViewById(R.id.email_text);
         passwordEditText = findViewById(R.id.password_text);
-        confirmPasswordEditTex = findViewById(R.id.confirm_password_text);
+        confirmPasswordEditText = findViewById(R.id.confirm_password_text);
         createAccountBtn = findViewById(R.id.create_account_button);
         progressBar = findViewById(R.id.progress_bar);
         loginBtnTextView = findViewById(R.id.login_txt_button);
+        firebaseAuth = FirebaseAuth.getInstance();
+
         createAccountBtn.setOnClickListener(v -> createAccount());
         loginBtnTextView.setOnClickListener(v -> finish());
     }
@@ -41,7 +43,7 @@ public class RegistrationActivity extends AppCompatActivity {
     void createAccount() {
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        String confirmPassword = confirmPasswordEditTex.getText().toString();
+        String confirmPassword = confirmPasswordEditText.getText().toString();
 
         boolean isValidated = validateData(email, password, confirmPassword);
         if (!isValidated) {
@@ -80,7 +82,6 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     boolean validateData(String email, String password, String confirmPassword) {
-
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailEditText.setError("Invalid Email!");
             return false;
@@ -90,7 +91,7 @@ public class RegistrationActivity extends AppCompatActivity {
             return false;
         }
         if (!password.equals(confirmPassword)) {
-            confirmPasswordEditTex.setError("Password not matched");
+            confirmPasswordEditText.setError("Password not matched");
             return false;
         }
         return true;

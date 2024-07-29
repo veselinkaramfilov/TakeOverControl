@@ -26,6 +26,12 @@
         <item>Select Alcohol</item>
     </string-array>
 
+    <string-array name="array_stat_date">
+        <item>Last 7 Days</item>
+        <item>Last Month</item>
+        <item>Last Year</item>
+    </string-array>
+
     <string-array name="array_beer_size">
         <item>Select Size</item>
         <item>Small Can/Bottle (275ml)</item>
@@ -46,6 +52,7 @@
         <item>3.0</item>
         <item>3.5</item>
         <item>4.0</item>
+        <item>4.2</item>
         <item>4.5</item>
         <item>5.0</item>
         <item>5.5</item>
@@ -73,6 +80,7 @@
         <item>3.0</item>
         <item>3.5</item>
         <item>4.0</item>
+        <item>4.2</item>
         <item>4.5</item>
         <item>5.0</item>
         <item>5.5</item>
@@ -442,5 +450,119 @@
     <string-array name="array_just_buy_alcohol">
         <item>Just Buy</item>
     </string-array>
+
+
+    <string-array name="array_brand_type">
+        <item>Select Brand Type</item>
+        <item>Beer</item>
+        <item>Whiskey</item>
+        <item>Wine</item>
+        <item>Vodka</item>
+        <item>Tequila</item>
+        <item>Cocktail</item>
+    </string-array>
+
+    <string-array name="array_brand_beer">
+        <item>Select Brand</item>
+        <item>Guinness</item>
+        <item>Heineken</item>
+        <item>Budweiser</item>
+        <item>Orchard Thieves</item>
+        <item>Bulmers</item>
+        <item>Smithwick\'s</item>
+        <item>Corona</item>
+        <item>Carlsberg</item>
+        <item>Blue Moon</item>
+        <item>Birra Moretti</item>
+        <item>Estrella Damm</item>
+        <item>Stella Artois</item>
+        <item>Peroni</item>
+        <item>Asahi</item>
+        <item>Erdinger</item>
+        <item>Paulaner</item>
+        <item>Weihenstephaner</item>
+    </string-array>
+
+    <string-array name="array_brand_whiskey">
+        <item>Select Brand</item>
+        <item>Jameson</item>
+        <item>Bushmills</item>
+        <item>Paddy</item>
+        <item>Powers</item>
+        <item>Tullamore</item>
+        <item>Irishman</item>
+        <item>Teeling</item>
+        <item>Waterford</item>
+        <item>West Cork</item>
+        <item>Johnnie Walker</item>
+        <item>Jack Daniel\'s</item>
+        <item>Jim Beam</item>
+        <item>Ballantines</item>
+        <item>Wild Turkey</item>
+    </string-array>
+
+    <string-array name="array_brand_vodka">
+        <item>Select Brand</item>
+        <item>Absolut</item>
+        <item>Chopin</item>
+        <item>Ciroc</item>
+        <item>Grey Goose</item>
+        <item>Kohr</item>
+        <item>Pinnacle</item>
+        <item>Skyy</item>
+        <item>Smirnoff</item>
+        <item>Svedka</item>
+        <item>Tito’s Vodka</item>
+    </string-array>
+
+    <string-array name="array_brand_wine">
+        <item>Select Brand</item>
+        <item>Familia Torres</item>
+        <item>Kendall-Jackson</item>
+        <item>Marchesi Antinori</item>
+        <item>Penfolds</item>
+        <item>Château Lafite Rothschild</item>
+        <item>Bodega Catena</item>
+        <item>Vega Sicilia</item>
+        <item>Henschke</item>
+        <item>Concha y Toro</item>
+        <item>Domaine de la Romanée Conti</item>
+        <item>CVNE</item>
+        <item>Antinori</item>
+        <item> Chateau Musar</item>
+    </string-array>
+
+    <string-array name="array_brand_tequila">
+        <item>Select Brand</item>
+        <item>Olmeca</item>
+        <item>Don Julio</item>
+        <item>Patron</item>
+        <item>Espolon Tequila</item>
+        <item>Jose Cuervo</item>
+        <item>El Tesoro</item>
+        <item>Fortaleza</item>
+        <item>Herradura</item>
+        <item>Tequila Ocho</item>
+        <item>Casamigos</item>
+    </string-array>
+
+    <string-array name="array_brand_cocktail">
+        <item>Select Brand</item>
+        <item>Margarita</item>
+        <item>Mojito</item>
+        <item>Pina colada</item>
+        <item>Sex on the beach</item>
+        <item>Passion fruit martini</item>
+        <item>Classic negroni</item>
+        <item>Old fashioned</item>
+        <item>Manhattan</item>
+        <item>Daiquiri</item>
+        <item>Cosmopolitan </item>
+    </string-array>
+
+    <string-array name="array_default_brand">
+        <item>Select Brand</item>
+    </string-array>
+
 
 </resources>

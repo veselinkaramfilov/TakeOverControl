@@ -6,7 +6,7 @@
     android:layout_marginHorizontal="32dp"
     android:layout_marginVertical="32dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".QuickAddActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,11 +19,10 @@
             android:background="@drawable/rounded_corner">
 
             <Spinner
-                android:id="@+id/spinner_type"
+                android:id="@+id/spinner_brand_type"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp" />
-
         </LinearLayout>
 
         <TextView
@@ -34,13 +33,12 @@
             android:padding="5dp"
             android:text="Type"
             android:textSize="18sp" />
-
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="15dp">
+        android:layout_marginTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,11 +47,10 @@
             android:background="@drawable/rounded_corner">
 
             <Spinner
-                android:id="@+id/spinner_size"
+                android:id="@+id/spinner_brand"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="10dp" />
-
         </LinearLayout>
 
         <TextView
@@ -62,130 +59,66 @@
             android:layout_marginLeft="10dp"
             android:background="#FEF7FF"
             android:padding="5dp"
-            android:text="Size"
+            android:text="Brand"
             android:textSize="18sp" />
-
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_corner">
-
-            <Spinner
-                android:id="@+id/spinner_alcohol"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="#FEF7FF"
-            android:padding="5dp"
-            android:text="Alcohol %"
-            android:textSize="18sp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
+    <TextView
+        android:id="@+id/last_seven_days_cost_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="15dp">
+        android:layout_marginTop="20dp"
+        android:text="OR"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_corner">
-
-            <EditText
-                android:id="@+id/text_cost"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/no_stroke"
-                android:hint="€ 0.00 "
-                android:inputType="numberDecimal"
-                android:textAlignment="viewEnd" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="#FEF7FF"
-            android:padding="5dp"
-            android:text="Cost"
-            android:textSize="18sp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/barcode_scanner_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Open Barcode Scanner"
+        android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_corner">
-
-            <EditText
-                android:id="@+id/text_place"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/no_stroke"
-                android:hint="Pub, Bar, Store etc.. "
-                android:inputType="text" />
-
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textview_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="#FEF7FF"
             android:padding="5dp"
-            android:text="Place"
+            android:text="Type: "
             android:textSize="18sp" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/textview_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Brand: "
+            android:textSize="18sp" />
+    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/save_button"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
         android:text="Save"
         android:textSize="16sp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/cancel_button"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="12dp"
         android:text="Cancel"
         android:textSize="16sp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/delete_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:text="Delete"
-        android:textSize="16sp"
-        android:visibility="gone" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -207,9 +140,7 @@
                 android:layout_marginEnd="15dp"
                 android:layout_toStartOf="@+id/calendar_image_button"
                 android:background="#00000000"
-                android:src="@drawable/outline_home_24">
-
-            </ImageButton>
+                android:src="@drawable/outline_home_24" />
 
             <ImageButton
                 android:id="@+id/calendar_image_button"
@@ -221,8 +152,7 @@
                 android:layout_marginEnd="15dp"
                 android:layout_toStartOf="@+id/stats_image_button"
                 android:background="#00000000"
-                android:src="@drawable/outline_calendar_month_24">
-            </ImageButton>
+                android:src="@drawable/outline_calendar_month_24" />
 
             <ImageButton
                 android:id="@+id/stats_image_button"
@@ -234,8 +164,7 @@
                 android:layout_marginEnd="15dp"
                 android:layout_toStartOf="@+id/account_image_button"
                 android:background="#00000000"
-                android:src="@drawable/outline_bar_chart_4_bars_24">
-            </ImageButton>
+                android:src="@drawable/outline_bar_chart_4_bars_24" />
 
             <ImageButton
                 android:id="@+id/account_image_button"
@@ -247,8 +176,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:background="#00000000"
-                android:src="@drawable/outline_manage_accounts_24">
-            </ImageButton>
+                android:src="@drawable/outline_manage_accounts_24" />
 
         </LinearLayout>
     </RelativeLayout>

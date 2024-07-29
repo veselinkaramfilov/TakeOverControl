@@ -1,6 +1,7 @@
 package com.example.takeovercontrol;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,18 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsV
     public void onBindViewHolder(@NonNull DetailsViewHolder holder, int position) {
         Details details = detailsList.get(position);
         holder.bind(details);
+
+        holder.itemView.setOnClickListener((v) -> {
+            Intent intent = new Intent(context, AddActivity.class);
+            intent.putExtra("type", details.getType());
+            intent.putExtra("size", details.getSize());
+            intent.putExtra("alcohol", String.valueOf(details.getAlcohol()));
+            intent.putExtra("cost", String.valueOf(details.getCost()));
+            intent.putExtra("place", details.getPlace());
+            intent.putExtra("unit", String.valueOf(details.getUnit()));
+            intent.putExtra("docId", details.getDocId());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -51,6 +64,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsV
             place = itemView.findViewById(R.id.placeTextView);
             unit = itemView.findViewById(R.id.unitTextView);
         }
+
         public void bind(Details details) {
             String formattedCost = String.format(Locale.getDefault(), "%.2f", details.getCost());
             String formattedUnit = String.format(Locale.getDefault(), "%.1f", details.getUnit());

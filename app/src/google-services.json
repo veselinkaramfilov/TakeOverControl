@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1077787495171",
+    "project_id": "take-over-control",
+    "storage_bucket": "take-over-control.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077787495171:android:1588b376a09a8b86b37736",
+        "android_client_info": {
+          "package_name": "com.example.takeovercontrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077787495171-9t9tvlt1hrqvd2bbql2rq8rcbq629108.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.takeovercontrol",
+            "certificate_hash": "95141004c49b7ef11e715340cb3250482887b9a5"
+          }
+        },
+        {
+          "client_id": "1077787495171-jttqnee0tkdufn6a240t86be7makmvm8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFFAkj4xZotbr6nmd0fKUlSc0vTvc8hNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077787495171-jttqnee0tkdufn6a240t86be7makmvm8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
