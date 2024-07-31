@@ -195,7 +195,6 @@ public class AddActivity extends AppCompatActivity {
             saveDetailsToFirebase(details);
         }
     }
-
     private float calculateAlcoholUnits(String selectedSize, String selectedAlcohol) {
         try {
             float volume = Float.parseFloat(selectedSize.replaceAll("[^\\d.]+", ""));
