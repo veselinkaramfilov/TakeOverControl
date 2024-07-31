@@ -43,6 +43,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsV
             intent.putExtra("place", details.getPlace());
             intent.putExtra("unit", String.valueOf(details.getUnit()));
             intent.putExtra("docId", details.getDocId());
+            intent.putExtra("date", details.getDate());
             context.startActivity(intent);
         });
     }

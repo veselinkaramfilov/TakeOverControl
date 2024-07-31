@@ -33,7 +33,7 @@ public class AddActivity extends AppCompatActivity {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     private Date currentDate = new Date();
     private String formattedDate = simpleDateFormat.format(currentDate);
-    private String receiveType, receiveSize, receivePlace, receiveAlcoholString, receiveCostString, receiveDocId;
+    private String receiveType, receiveSize, receivePlace, receiveAlcoholString, receiveCostString, receiveDocId, receiveDate;
     private float receiveAlcohol;
     private double receiveCost;
     private boolean isEditMode = false;
@@ -64,6 +64,7 @@ public class AddActivity extends AppCompatActivity {
         receiveCostString = getIntent().getStringExtra("cost");
         receivePlace = getIntent().getStringExtra("place");
         receiveDocId = getIntent().getStringExtra("docId");
+        receiveDate = getIntent().getStringExtra("date");
 
         if (receiveDocId != null && !receiveDocId.isEmpty()) {
             isEditMode = true;
@@ -184,12 +185,13 @@ public class AddActivity extends AppCompatActivity {
         details.setPlace(placeText);
         details.setUnit(alcoholUnits);
         details.setTimestamp(Timestamp.now());
-        details.setDate(formattedDate);
 
         if (isEditMode) {
+            details.setDate(receiveDate);
             details.setDocId(receiveDocId);
             updateDetailsInFirebase(details);
         } else {
+            details.setDate(formattedDate);
             saveDetailsToFirebase(details);
         }
     }
