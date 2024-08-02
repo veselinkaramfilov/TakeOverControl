@@ -116,7 +116,6 @@ public class AddActivity extends AppCompatActivity {
                 selectedType = spinnerType.getSelectedItem().toString();
                 setupSizeSpinner(selectedType);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -127,7 +126,6 @@ public class AddActivity extends AppCompatActivity {
                 selectedSize = spinnerSize.getSelectedItem().toString();
                 setupAlcoholSpinner(selectedSize, selectedType);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -137,13 +135,11 @@ public class AddActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedAlcohol = spinnerAlcohol.getSelectedItem().toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
     }
-
     void showLogout() {
         PopupMenu popupMenu = new PopupMenu(AddActivity.this, logOutBtn);
         popupMenu.getMenu().add("Logout");

@@ -65,7 +65,6 @@ public class StatsActivity extends AppCompatActivity {
         textViewCost = findViewById(R.id.textView_bar_cost);
         textViewSelectionDetails = findViewById(R.id.textView_selection_details);
         imageViewStatus = findViewById(R.id.imageView_status);
-
         ArrayAdapter<CharSequence> adapterStatDate = ArrayAdapter.createFromResource(
                 this, R.array.array_stat_date, android.R.layout.simple_spinner_item);
         adapterStatDate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -76,22 +75,18 @@ public class StatsActivity extends AppCompatActivity {
                 String selectedOption = parent.getItemAtPosition(position).toString();
                 fetchFirestoreData(selectedOption);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
         homeBtn.setOnClickListener(view -> {
             Intent intent = new Intent(StatsActivity.this, MainActivity.class);
             startActivity(intent);
         });
-
         calendarBtn.setOnClickListener(view -> {
             Intent intent = new Intent(StatsActivity.this, CalendarActivity.class);
             startActivity(intent);
         });
-
         logOutBtn.setOnClickListener(v -> showLogout());
         configureBarChart();
     }
@@ -114,7 +109,6 @@ public class StatsActivity extends AppCompatActivity {
     private void configureBarChart() {
         barChart.getDescription().setEnabled(false);
         barChart.setFitBars(true);
-
         XAxis xAxis = barChart.getXAxis();
         xAxis.setGranularity(1f);
         xAxis.setGranularityEnabled(true);
@@ -124,12 +118,10 @@ public class StatsActivity extends AppCompatActivity {
 
     private void fetchFirestoreData(String selectedOption) {
         CollectionReference detailsRef = Utility.getCollectionReferenceForDetails();
-
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         SimpleDateFormat displayFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
         SimpleDateFormat weekFormat = new SimpleDateFormat("w yyyy", Locale.getDefault());
         SimpleDateFormat monthFormat = new SimpleDateFormat("MMM yyyy", Locale.getDefault());
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         String formattedStartDate;
@@ -153,7 +145,6 @@ public class StatsActivity extends AppCompatActivity {
         }
 
         Query query = detailsRef.whereGreaterThanOrEqualTo("date", formattedStartDate);
-
         query.get().addOnSuccessListener(queryDocumentSnapshots -> {
             switch (selectedOption) {
                 case "Last 7 Days":
@@ -176,21 +167,17 @@ public class StatsActivity extends AppCompatActivity {
         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
             Details details = documentSnapshot.toObject(Details.class);
             String dateString = details.getDate();
-
             try {
                 Date date = simpleDateFormat.parse(dateString);
                 String formattedDate = displayFormat.format(date);
-
                 float unitValue = details.getUnit();
                 float costValue = (float) details.getCost();
-
                 dailyUnitSumMap.merge(formattedDate, unitValue, Float::sum);
                 dailyCostSumMap.merge(formattedDate, costValue, Float::sum);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
-
         updateChart(dailyUnitSumMap, dailyCostSumMap, displayFormat);
     }
 
@@ -201,26 +188,21 @@ public class StatsActivity extends AppCompatActivity {
         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
             Details details = documentSnapshot.toObject(Details.class);
             String dateString = details.getDate();
-
             try {
                 Date date = simpleDateFormat.parse(dateString);
                 String formattedWeek = weekFormat.format(date);
-
                 float unitValue = details.getUnit();
                 float costValue = (float) details.getCost();
-
                 weeklyUnitSumMap.merge(formattedWeek, unitValue, Float::sum);
                 weeklyCostSumMap.merge(formattedWeek, costValue, Float::sum);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
-
         float totalWeeklyUnits = 0;
         for (Float weeklyUnits : weeklyUnitSumMap.values()) {
             totalWeeklyUnits += weeklyUnits;
         }
-
         updateChart(weeklyUnitSumMap, weeklyCostSumMap, weekFormat);
         updateStatusImage("Last Month", totalWeeklyUnits);
     }
@@ -232,26 +214,21 @@ public class StatsActivity extends AppCompatActivity {
         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
             Details details = documentSnapshot.toObject(Details.class);
             String dateString = details.getDate();
-
             try {
                 Date date = simpleDateFormat.parse(dateString);
                 String formattedMonth = monthFormat.format(date);
-
                 float unitValue = details.getUnit();
                 float costValue = (float) details.getCost();
-
                 monthlyUnitSumMap.merge(formattedMonth, unitValue, Float::sum);
                 monthlyCostSumMap.merge(formattedMonth, costValue, Float::sum);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
-
         float totalMonthlyUnits = 0;
         for (Float monthlyUnits : monthlyUnitSumMap.values()) {
             totalMonthlyUnits += monthlyUnits;
         }
-
         updateChart(monthlyUnitSumMap, monthlyCostSumMap, monthFormat);
         updateStatusImage("Last Year", totalMonthlyUnits);
     }
@@ -268,15 +245,12 @@ public class StatsActivity extends AppCompatActivity {
 
         float totalUnits = 0f;
         float totalCosts = 0f;
-
         for (Map.Entry<String, Float> entry : sortedUnitEntries) {
             totalUnits += entry.getValue();
             totalCosts += costSumMap.getOrDefault(entry.getKey(), 0f);
         }
-
         String formattedTotalUnits = String.format(Locale.getDefault(), "%.1f", totalUnits);
         String formattedTotalCosts = String.format(Locale.getDefault(), "%.2f", totalCosts);
-
         String selectedOption = spinnerStatDate.getSelectedItem().toString();
         String detailsText = "";
 
@@ -303,26 +277,20 @@ public class StatsActivity extends AppCompatActivity {
         }
 
         textViewSelectionDetails.setText(Html.fromHtml(detailsText));
-
         ArrayList<BarEntry> unitEntries = new ArrayList<>();
         ArrayList<String> labels = new ArrayList<>();
         int index = 0;
-
         for (Map.Entry<String, Float> entry : sortedUnitEntries) {
             unitEntries.add(new BarEntry(index, entry.getValue()));
             labels.add(entry.getKey());
             index++;
         }
-
         BarDataSet unitDataSet = new BarDataSet(unitEntries, "Units");
         unitDataSet.setColor(ContextCompat.getColor(this, R.color.my_color));
-
         List<IBarDataSet> dataSets = new ArrayList<>();
         dataSets.add(unitDataSet);
-
         BarData barData = new BarData(dataSets);
         barData.setBarWidth(0.4f);
-
         barChart.setData(barData);
         barChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));
         barChart.getXAxis().setLabelRotationAngle(-45);
@@ -333,15 +301,12 @@ public class StatsActivity extends AppCompatActivity {
             public void onValueSelected(Entry e, Highlight h) {
                 float unitValue = e.getY();
                 String label = labels.get((int) e.getX());
-
                 float costValue = costSumMap.getOrDefault(label, 0f);
                 String formattedUnitValue = String.format(Locale.getDefault(), "%.1f", unitValue);
                 String formattedCostValue = String.format(Locale.getDefault(), "%.2f", costValue);
-
                 textViewDate.setText(Html.fromHtml("<b>Selected Date:</b> " + label));
                 textViewUnit.setText(Html.fromHtml("<b>Units:</b> " + formattedUnitValue));
                 textViewCost.setText(Html.fromHtml("<b>Costs:</b> " + formattedCostValue + " €"));
-
                 updateStatusImage(spinnerStatDate.getSelectedItem().toString(), unitValue);
             }
 

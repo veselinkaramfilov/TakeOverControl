@@ -60,7 +60,6 @@ public class QuickAddActivity extends AppCompatActivity {
         spinnerBrand = findViewById(R.id.spinner_brand);
         textViewSelectedType = findViewById(R.id.textview_type);
         textViewSelectedBrand = findViewById(R.id.textview_brand);
-
         ArrayAdapter<CharSequence> adapterBrandType = ArrayAdapter.createFromResource(this, R.array.array_brand_type, android.R.layout.simple_spinner_item);
         adapterBrandType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBrandType.setAdapter(adapterBrandType);
@@ -90,19 +89,16 @@ public class QuickAddActivity extends AppCompatActivity {
                 setTextViewType(selectedBrandType);
                 setupBrandSpinner(selectedBrandType);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
         spinnerBrand.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedBrand = spinnerBrand.getSelectedItem().toString();
                 setTextViewBrand(selectedBrand);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }

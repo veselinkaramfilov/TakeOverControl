@@ -65,26 +65,21 @@ public class MainActivity extends AppCompatActivity {
         sum7Unit = findViewById(R.id.last_seven_days_units_text_edit);
         sum7Cost = findViewById(R.id.last_seven_days_cost_text_edit);
         statsBtn = findViewById(R.id.stats_image_button);
-
         addBtn.setOnClickListener((v) -> startActivityForResult(new Intent(MainActivity.this, AddActivity.class), REQUEST_CODE_ADD_ACTIVITY));
         quickAddBtn.setOnClickListener((v) -> startActivityForResult(new Intent(MainActivity.this, QuickAddActivity.class), REQUEST_CODE_QUICK_ADD_ACTIVITY));
         logOutBtn.setOnClickListener((v) -> showLogout());
-
         sumUnitsForToday(new Date());
         sumCostsForToday(new Date());
         sumUnitsForLastSevenDays();
         sumCostsForLastSevenDays();
-
         calendarBtn.setOnClickListener((view) -> {
             Intent intentLoadNewActivity = new Intent(MainActivity.this, CalendarActivity.class);
             startActivity(intentLoadNewActivity);
         });
-
         statsBtn.setOnClickListener((v) -> {
             Intent intentLoadNewActivity = new Intent(MainActivity.this, StatsActivity.class);
             startActivity(intentLoadNewActivity);
         });
-
         createNotificationChannel();
         checkNotificationPermission();
     }
@@ -143,16 +138,15 @@ public class MainActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         CollectionReference collectionReference = Utility.getCollectionReferenceForDetails();
         if (collectionReference != null) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            cal.set(Calendar.HOUR_OF_DAY, 0);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-            cal.set(Calendar.MILLISECOND, 0);
-            Date startDate = cal.getTime();
-            cal.add(Calendar.DAY_OF_MONTH, 1);
-            Date endDate = cal.getTime();
-
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.MILLISECOND, 0);
+            Date startDate = calendar.getTime();
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            Date endDate = calendar.getTime();
             Query query = collectionReference
                     .whereGreaterThanOrEqualTo("timestamp", startDate)
                     .whereLessThan("timestamp", endDate);
@@ -168,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     sumToday = Math.round(sum * 10.0f) / 10.0f;
                     sumUnit.setText(String.valueOf(sumToday));
-
                     checkAndShowNotifications();
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());
@@ -183,16 +176,15 @@ public class MainActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         CollectionReference collectionReference = Utility.getCollectionReferenceForDetails();
         if (collectionReference != null) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            cal.set(Calendar.HOUR_OF_DAY, 0);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-            cal.set(Calendar.MILLISECOND, 0);
-            Date startDate = cal.getTime();
-            cal.add(Calendar.DAY_OF_MONTH, 1);
-            Date endDate = cal.getTime();
-
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.MILLISECOND, 0);
+            Date startDate = calendar.getTime();
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            Date endDate = calendar.getTime();
             Query query = collectionReference
                     .whereGreaterThanOrEqualTo("timestamp", startDate)
                     .whereLessThan("timestamp", endDate);
@@ -221,16 +213,15 @@ public class MainActivity extends AppCompatActivity {
         CollectionReference collectionReference = Utility.getCollectionReferenceForDetails();
 
         if (collectionReference != null) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(new Date());
-            cal.set(Calendar.HOUR_OF_DAY, 23);
-            cal.set(Calendar.MINUTE, 59);
-            cal.set(Calendar.SECOND, 59);
-            cal.set(Calendar.MILLISECOND, 999);
-            Date endDate = cal.getTime();
-            cal.add(Calendar.DAY_OF_MONTH, -7);
-            Date startDate = cal.getTime();
-
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date());
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE, 59);
+            calendar.set(Calendar.SECOND, 59);
+            calendar.set(Calendar.MILLISECOND, 999);
+            Date endDate = calendar.getTime();
+            calendar.add(Calendar.DAY_OF_MONTH, -7);
+            Date startDate = calendar.getTime();
             Query query = collectionReference
                     .whereGreaterThanOrEqualTo("timestamp", startDate)
                     .whereLessThanOrEqualTo("timestamp", endDate);
@@ -260,16 +251,15 @@ public class MainActivity extends AppCompatActivity {
         CollectionReference collectionReference = Utility.getCollectionReferenceForDetails();
 
         if (collectionReference != null) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(new Date());
-            cal.set(Calendar.HOUR_OF_DAY, 23);
-            cal.set(Calendar.MINUTE, 59);
-            cal.set(Calendar.SECOND, 59);
-            cal.set(Calendar.MILLISECOND, 999);
-            Date endDate = cal.getTime();
-            cal.add(Calendar.DAY_OF_MONTH, -7);
-            Date startDate = cal.getTime();
-
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date());
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE, 59);
+            calendar.set(Calendar.SECOND, 59);
+            calendar.set(Calendar.MILLISECOND, 999);
+            Date endDate = calendar.getTime();
+            calendar.add(Calendar.DAY_OF_MONTH, -7);
+            Date startDate = calendar.getTime();
             Query query = collectionReference
                     .whereGreaterThanOrEqualTo("timestamp", startDate)
                     .whereLessThanOrEqualTo("timestamp", endDate);

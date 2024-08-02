@@ -17,7 +17,6 @@ public class CustomScannerActivity extends CaptureActivity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         int screenWidth = metrics.widthPixels;
         int screenHeight = metrics.heightPixels;
-
         DecoratedBarcodeView barcodeScannerView = findViewById(com.google.zxing.client.android.R.id.zxing_barcode_scanner);
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) barcodeScannerView.getLayoutParams();
         int scanAreaSize = (int) (Math.min(screenWidth, screenHeight) * 0.6);

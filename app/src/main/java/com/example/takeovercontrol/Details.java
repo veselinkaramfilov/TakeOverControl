@@ -11,7 +11,6 @@ public class Details {
 
     public Details() {
     }
-
     public String getType() {
         return type;
     }

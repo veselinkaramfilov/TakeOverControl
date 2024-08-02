@@ -50,19 +50,17 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         createAccountBtnTextView = findViewById(R.id.create_account_txt_button);
         forgotPasswordTextView = findViewById(R.id.forgot_password_text_view);
-
         firebaseAuth = FirebaseAuth.getInstance();
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("1077787495171-jttqnee0tkdufn6a240t86be7makmvm8.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
-        googleSignInClient = GoogleSignIn.getClient(this, gso);
+        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
         googleSignInClient.signOut();
         loginBtn.setOnClickListener((v) -> loginUser());
         googleSignInBtn.setOnClickListener(v -> signInWithGoogle());
         createAccountBtnTextView.setOnClickListener((v) -> startActivity(new Intent(LoginActivity.this, RegistrationActivity.class)));
-
         forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -183,7 +181,6 @@ public class LoginActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-
         passwordResetDialog.create().show();
     }
 

@@ -64,7 +64,6 @@ public class CalendarActivity extends AppCompatActivity {
         detailsList = new ArrayList<>();
         adapter = new DetailsAdapter(this, detailsList);
         recyclerView.setAdapter(adapter);
-
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             Date selectedDate = new Date(year - 1900, month, dayOfMonth);

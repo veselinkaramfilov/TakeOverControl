@@ -21,19 +21,16 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsV
         this.context = context;
         this.detailsList = detailsList;
     }
-
     @NonNull
     @Override
     public DetailsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_details, parent, false);
         return new DetailsViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull DetailsViewHolder holder, int position) {
         Details details = detailsList.get(position);
         holder.bind(details);
-
         holder.itemView.setOnClickListener((v) -> {
             Intent intent = new Intent(context, AddActivity.class);
             intent.putExtra("type", details.getType());
@@ -47,7 +44,6 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsV
             context.startActivity(intent);
         });
     }
-
     @Override
     public int getItemCount() {
         return detailsList.size();
@@ -69,7 +65,6 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsV
         public void bind(Details details) {
             String formattedCost = String.format(Locale.getDefault(), "%.2f", details.getCost());
             String formattedUnit = String.format(Locale.getDefault(), "%.1f", details.getUnit());
-
             type.setText("Type: " + details.getType());
             size.setText("Size: " + details.getSize());
             alcohol.setText("Alcohol: " + details.getAlcohol() + "%");

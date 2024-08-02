@@ -35,7 +35,6 @@ public class RegistrationActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         loginBtnTextView = findViewById(R.id.login_txt_button);
         firebaseAuth = FirebaseAuth.getInstance();
-
         createAccountBtn.setOnClickListener(v -> createAccount());
         loginBtnTextView.setOnClickListener(v -> finish());
     }
@@ -44,7 +43,6 @@ public class RegistrationActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPasswordEditText.getText().toString();
-
         boolean isValidated = validateData(email, password, confirmPassword);
         if (!isValidated) {
             return;
